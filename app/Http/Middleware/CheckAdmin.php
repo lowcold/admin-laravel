@@ -42,7 +42,7 @@ class CheckAdmin
                 if (!array_key_exists($controller, $routers)) {
                     return response()->json(['code' => 0, 'msg' => '没有操作权限']);
                 }
-                if (!in_array($action, $routers)) {
+                if (!in_array($action, $routers[$controller])) {
                     return response()->json(['code' => 0, 'msg' => '没有操作权限']);
                 }
             }
@@ -50,7 +50,7 @@ class CheckAdmin
             if (!array_key_exists($controller, $routers)) {
                 return response()->json(['code' => 0, 'msg' => '没有操作权限']);
             }
-            if (!in_array($action, $routers)) {
+            if (!in_array($action, $routers[$controller])) {
                 return response()->json(['code' => 0, 'msg' => '没有操作权限']);
             }
         }
